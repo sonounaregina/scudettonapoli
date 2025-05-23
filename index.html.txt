@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Audioguida Monumenti</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    .btn {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: darkblue;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Audioguida Monumenti</h1>
+
+  <button class="btn" onclick="playAudio('cenacolo')">Cenacolo</button>
+  <button class="btn" onclick="playAudio('sant_ambrogio')">Sant'Ambrogio</button>
+  <button class="btn" onclick="playAudio('san_maurizio')">San Maurizio</button>
+  <button class="btn" onclick="playAudio('monastero')">Monastero</button>
+
+  <!-- Audio files -->
+  <audio id="cenacolo" src="cenacolo.mp3"></audio>
+  <audio id="sant_ambrogio" src="sant_ambrogio.mp3"></audio>
+  <audio id="san_maurizio" src="san_maurizio.mp3"></audio>
+  <audio id="monastero" src="monastero.mp3"></audio>
+
+  <script>
+    function playAudio(id) {
+      // Pause all audios
+      document.querySelectorAll('audio').forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+      // Play the selected one
+      document.getElementById(id).play();
+    }
+  </script>
+
+</body>
+</html>
